@@ -1,7 +1,8 @@
 import { CircularProgress } from "@mui/material";
-import { supabase } from "../../supabase/supabase";
+
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router";
+import { supabase } from "../../../config/supabase";
 
 
 const AuthGuard = ({children}:{children:React.ReactNode}) =>{

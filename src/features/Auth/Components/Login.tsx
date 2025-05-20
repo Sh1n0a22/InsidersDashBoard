@@ -1,9 +1,10 @@
 import {  Box, Button, Typography} from "@mui/material"
-import CustomInput from "./UiCustomCompontents/AuthentificationInput"
-import { supabase } from "../../supabase/supabase"
+import CustomInput from "../../../UiReusablecomponents/AuthentificationInput"
+
 import { NavLink, useNavigate } from "react-router";
 import {  useState } from "react";
-import type { eventInputChangeType } from "./UiCustomCompontents/customComponentTypes";
+import type { eventInputChangeType } from "../../../UiReusablecomponents/customComponentTypes";
+import { supabase } from "../../../config/supabase";
 
 
 const Login = () => {

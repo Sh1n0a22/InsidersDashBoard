@@ -1,11 +1,13 @@
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import { hanldeLogOut } from "../Authentification/servises/HandleLogOut";
+import { hanldeLogOut } from "../features/Auth/servises/HandleLogOut";
 import { useEffect, useState, type ReactNode } from "react";
 import { NavLink } from "react-router";
-import { supabase } from "../supabase/supabase";
+import { supabase } from "../config/supabase";
+import UploadModal from "./modalWindowUpload";
 
 
-const Layout = ({ children }: { children: ReactNode }) => {
+
+const NavBar = ({ children }: { children: ReactNode }) => {
 const [user,setUser] = useState<any>(null)
 
 useEffect(()=>{
@@ -32,14 +34,21 @@ useEffect(()=>{
               <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'inherit' }}>
                 Home
               </NavLink>
+              
+            </Button>
+             <Button color="inherit">
+              <NavLink to="/tasks" style={{ textDecoration: 'none', color: 'inherit' }}>
+                Todo list
+              </NavLink>
+              
             </Button>
           </Box>
 
          
           {user && 
-          (<Button onClick={hanldeLogOut} color="inherit">
+          (<Box><Button onClick={hanldeLogOut} color="inherit">
             Logout
-          </Button>)}
+          </Button> <UploadModal/></Box>)}
         </Toolbar>
       </AppBar>
 
@@ -53,4 +62,4 @@ useEffect(()=>{
   );
 };
 
-export default Layout;
+export default NavBar;

@@ -1,4 +1,5 @@
-import { supabase } from "../../supabase/supabase"
+import { supabase } from "../../../config/supabase"
+
 
 export const hanldeLogOut = async () =>{
  await supabase.auth.signOut()
