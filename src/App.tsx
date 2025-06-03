@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import AuthGuard from "./features/Auth/Components/AuthGuardComponent";
 import Login from "./features/Auth/Components/Login";
 import Register from "./features/Auth/Components/Register";
@@ -11,10 +11,11 @@ import TasksBoard from "./features/Dashboard/components/Todolist";
 
 function App() {
 return(
-  <BrowserRouter >
+  <BrowserRouter basename="/">
    <NavBar>
     <Routes>
-      <Route path="/tasks" element={<TasksBoard/>}/>
+      <Route path="/" element={<Navigate to="/dashboard"/>}/>
+      <Route path="/tasks" element={<AuthGuard><TasksBoard/></AuthGuard>}/>
       <Route path="/PasswordReset" element={<ResetPasword/>}/>
       <Route path="/Login" element={<Login/>}/>
       <Route path="/Register" element={<Register/>}/>

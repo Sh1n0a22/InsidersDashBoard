@@ -1,25 +1,22 @@
-import { TextField } from "@mui/material"
+import { TextField, type TextFieldProps } from "@mui/material"
 
-
-
-
-const CustomInput = ({...props}) => {
-    return(
-         <TextField  required 
-         {...props}
-         
-         margin="normal"
-                    sx={{
-                    input:{color:'white'},
-                    label: { color: 'white' },
-                    '& .MuiOutlinedInput-root': {
+const CustomInput = (props: TextFieldProps) => {
+    return (
+        <TextField required
+            {...props}
+            margin="normal"
+            sx={{
+                input: { color: 'white' },
+                label: { color: 'white' },
+                '& .MuiOutlinedInput-root': {
                     '& fieldset': {
                         borderColor: 'white',
                     },
                     '&:hover fieldset': {
-                    borderColor: 'blueviolet',
-                },}
-                    }}/>
+                        borderColor: 'blueviolet',
+                    },
+                }
+            }} />
     )
 }
 export default CustomInput
