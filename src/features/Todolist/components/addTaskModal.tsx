@@ -1,34 +1,40 @@
-import { useState } from 'react';
 import {
   Dialog, DialogTitle, DialogContent, DialogActions,
   TextField, Button, MenuItem
 } from '@mui/material';
-import { supabase } from '../config/supabase';
+import useTask from '../../../hooks/useTask';
+import type { TaskModalProps } from '../types/TodolistTypes';
 
-const AddTaskModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('todo');
 
-  const handleAdd = async () => {
-    const user = (await supabase.auth.getUser()).data.user;
-    const { error } = await supabase.from('tasks').insert([{
-      title,
-      description,
-      status,
-      user_id: user?.id || null,
-      created_at: new Date().toISOString(),
-    }]);
 
-    if (error) {
-      console.error('Failed to add task:', error.message);
-      return;
-    }
-    onClose();
-  };
+
+const AddTaskModal =({ open, closeModal }:TaskModalProps)=> {
+  // const [title, setTitle] = useState('');
+  // const [description, setDescription] = useState('');
+  // const [status, setStatus] = useState('todo');
+
+
+  // const handleAdd = async () => {
+  //   const user = (await supabase.auth.getUser()).data.user;
+  //   const { error } = await supabase.from('tasks').insert([{
+  //     title,
+  //     description,
+  //     status,
+  //     user_id: user?.id || null,
+  //     created_at: new Date().toISOString(),
+  //   }]);
+
+  //   if (error) {
+  //     console.error('Failed to add task:', error.message);
+  //     return;
+  //   }
+  //   closeModal();
+  // };
+  const {title,setTitle,description,setDescription,setStatus,status,handleAdd} = useTask()
+  
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog open={open} onClose={closeModal}>
       <DialogTitle>Add Task</DialogTitle>
       <DialogContent>
         <TextField
@@ -61,7 +67,7 @@ const AddTaskModal = ({ open, onClose }: { open: boolean; onClose: () => void })
         </TextField>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={closeModal}>Cancel</Button>
         <Button onClick={handleAdd} variant="contained">Add</Button>
       </DialogActions>
     </Dialog>

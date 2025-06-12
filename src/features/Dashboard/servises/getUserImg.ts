@@ -18,7 +18,7 @@
 //     return urlData.publicUrl;
 //   });
 // }
-import { supabase } from "../../../config/supabase";
+import { supabase } from "../../../services/supabase";
 
 export const getUserImg = async () => {
   const user = (await supabase.auth.getUser()).data.user;

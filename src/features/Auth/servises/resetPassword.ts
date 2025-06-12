@@ -1,4 +1,4 @@
-import { supabase } from "../../../config/supabase"
+import { supabase } from "../../../services/supabase"
 
 export const resetUserPassword = async (email:string) => {
          const { error } = await supabase.auth.resetPasswordForEmail(email,

@@ -1,14 +1,14 @@
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import {  type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { NavLink } from "react-router";
 import UploadModal from "./modalWindowUpload";
 import { useCurrentUser } from "../hooks/useCurrentUser";
-import LogoutButton from "../LogutButton";
+import LogoutButton from "./LogutButton";
 
 
 
 const NavBar = ({ children }: { children: ReactNode }) => {
-const user = useCurrentUser()
+  const user = useCurrentUser()
 
   return (
     <>
@@ -28,16 +28,16 @@ const user = useCurrentUser()
             <Button color="inherit">
               <NavLink to="/tasks" style={{ textDecoration: 'none', color: 'inherit' }}>
                 Todo list
-              </NavLink> 
+              </NavLink>
             </Button>
 
           </Box>
 
-         
+
           {user && (
-              <Box> 
-              <LogoutButton/> 
-              <UploadModal/>
+            <Box>
+              <LogoutButton />
+              <UploadModal />
             </Box>
           )}
 
@@ -46,10 +46,10 @@ const user = useCurrentUser()
 
 
       <Box display="flex"
-            justifyContent="center"
-            alignItems="center"
-            minHeight="100vh">
-      {children}</Box>
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh">
+        {children}</Box>
     </>
   );
 };

@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import { Button, Dialog, DialogContent } from '@mui/material';
-import VisuallyHiddenInput from '../UiReusablecomponents/visuallyHidden';
+import VisuallyHiddenInput from './visuallyHidden';
 import { HandleonFileChange } from '../features/Dashboard/servises/HanleOnFIleChange';
-import { supabase } from '../config/supabase';
+import {  user } from '../services/supabase';
+import useTaskBoard from '../hooks/useTaskBoard';
 
-const {data:{user}} = await supabase.auth.getUser()
+
+// const {data:{user}} = await supabase.auth.getUser()
 
 const UploadModal = () => {
-  const [open, setOpen] = useState(false);
+  const { openModal , closeModal , open} = useTaskBoard()
 
   return (
     <>
-      <Button  variant="contained" onClick={() => setOpen(true)}>
+      <Button  variant="contained" onClick={openModal}>
         Upload Image
       </Button>
 
-      <Dialog open={open} onClose={() => setOpen(false)}>
+      <Dialog open={open} onClose={closeModal}>
         <DialogContent>
 
          <Button component="label" role={undefined} variant="contained" tabIndex={-1}>Upload files

@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material"
-import CustomInput from "../../../UiReusablecomponents/AuthentificationInput"
-import type { eventInputChangeType } from "../../../UiReusablecomponents/customComponentTypes";
+import CustomInput from "../../../sharedComponents/CustomInput"
+import type { eventInputChangeType } from "../../../sharedComponents/types/customComponentTypes";
 import useAuth from "../../../hooks/useAuth";
 import ForgotPasswordBox from "./ForgotPasswordBox";
 import RegisterBox from "./RegisterBox";

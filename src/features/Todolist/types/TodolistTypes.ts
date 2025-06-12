@@ -11,3 +11,8 @@ export type TaskColumnProps = {
   title: string;
   tasks: Task[];
 };
+export type  TaskModalProps = {
+  open: boolean;
+  closeModal: () => void;
+  task?: Task;
+}

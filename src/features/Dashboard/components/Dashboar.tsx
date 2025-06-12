@@ -1,14 +1,5 @@
-import { Box, Button, Typography } from "@mui/material"
-import { supabase } from "../../../config/supabase"
-
+import { Box } from "@mui/material"
 import Gallery from "./Gallery"
-
-
-
-
-// const {data:{user}} = await supabase.auth.getUser()
-
-
 const Dashboard = () =>{
  return(
    <Box>

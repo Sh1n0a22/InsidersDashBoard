@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../config/supabase";
+import { supabase } from "../services/supabase";
 import type { User } from "@supabase/supabase-js";
 
 export const useCurrentUser = () => {

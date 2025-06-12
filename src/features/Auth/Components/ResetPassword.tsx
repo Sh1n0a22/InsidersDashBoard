@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from "@mui/material"
-import CustomInput from "../../../UiReusablecomponents/AuthentificationInput"
+import CustomInput from "../../../sharedComponents/CustomInput"
 import { useNavigate, useSearchParams } from "react-router"
 import { useEffect, useState } from "react"
 
-import type { eventInputChangeType } from "../../../UiReusablecomponents/customComponentTypes"
-import { supabase } from "../../../config/supabase"
+import type { eventInputChangeType } from "../../../sharedComponents/types/customComponentTypes"
+import { supabase } from "../../../services/supabase"
 
 const ResetPasword = () => {
     const [searchParams] = useSearchParams()

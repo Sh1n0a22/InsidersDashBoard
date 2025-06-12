@@ -1,4 +1,4 @@
-import { supabase } from "../../../config/supabase"
+import { supabase } from "../../../services/supabase"
 
 
 export const logoutUser = async () =>{

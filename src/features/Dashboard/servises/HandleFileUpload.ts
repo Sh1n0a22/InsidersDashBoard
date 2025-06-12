@@ -1,4 +1,4 @@
-import { supabase } from "../../../config/supabase";
+import { supabase } from "../../../services/supabase";
 
 export const handleFileUpload = async (filesList: FileList | File[], userId: string) => {
   if (!filesList) return;

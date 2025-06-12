@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router";
-import { supabase } from "../../../config/supabase";
+import { supabase } from "../../../services/supabase";
 import type { User } from "@supabase/supabase-js";
 
 
